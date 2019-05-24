@@ -14,6 +14,7 @@ public class TabBar: UIView {
     private var tabs: [TabItem] = [TabItem]()
     private var defaultSelection: Int = 1
     public var selectedItem: (Int) -> Void = { _ in }
+    var drawShadow = false
     
     convenience public init(tabs: [TabItem], defaultSelection: Int) {
         self.init()
@@ -28,6 +29,19 @@ public class TabBar: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        if !drawShadow {
+            let shadowPath = UIBezierPath(rect: CGRect(x: bounds.origin.x + 3, y: bounds.origin.y - 6, width: bounds.size.width - 5, height: bounds.size.height - 10))
+            layer.masksToBounds = false
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOffset = CGSize(width: 0, height: 0.2)
+            layer.shadowOpacity = 0.2
+            layer.shadowPath = shadowPath.cgPath
+            drawShadow = true
+        }
     }
     
     func configure() {

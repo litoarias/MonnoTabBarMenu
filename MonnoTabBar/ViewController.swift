@@ -30,9 +30,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
-        homeViewController.view.backgroundColor = .red
-        searchViewController.view.backgroundColor = .brown
-        accountViewController.view.backgroundColor = .purple
+//        homeViewController.view.backgroundColor = .red
+//        searchViewController.view.backgroundColor = .brown
+//        accountViewController.view.backgroundColor = .purple
         
         self.viewControllers = [homeViewController, searchViewController, accountViewController]
         
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tabbar.dropShadow(color: .lightGray, opacity: 0.4, offSet: CGSize(width: -1, height: -5), radius: 3, scale: true)
+//        tabbar.dropShadow(color: .lightGray, opacity: 0.4, offSet: CGSize(width: -1, height: -5), radius: 3, scale: true)
     }
     
 }
