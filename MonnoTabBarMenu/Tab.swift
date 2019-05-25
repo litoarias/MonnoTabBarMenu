@@ -11,7 +11,8 @@ import UIKit
 public class TabItem: UIButton {
     
     var action: (UIButton) -> Void = { _ in }
-    var image: UIImage!
+    private var image: UIImage!
+    private var title: String!
     
     override public var isSelected: Bool {
         willSet(newValue) {
@@ -26,7 +27,7 @@ public class TabItem: UIButton {
         configure()
     }
     
-    convenience public init(image: UIImage) {
+    convenience public init(image: UIImage, title: String) {
         self.init()
         self.image = image
     }
@@ -79,7 +80,7 @@ public class TabItem: UIButton {
         }) { (completion) in
             UIView.animate(withDuration: 0.125) {
                 if self.isSelected {
-                    self.setTitle("Categorías", for: .selected)
+                    self.setTitle(self.title, for: .selected)
                 } else {
                     self.setTitle("", for: .selected)
                 }
