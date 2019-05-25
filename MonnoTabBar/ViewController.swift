@@ -29,14 +29,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        homeViewController.view.backgroundColor = .red
-//        searchViewController.view.backgroundColor = .brown
-//        accountViewController.view.backgroundColor = .purple
-        
         self.viewControllers = [homeViewController, searchViewController, accountViewController]
         
-        tabbar = TabBar(tabs: [favorites, home, categories], defaultSelection: selectedIndex, distribution: .fillEqually)
+        tabbar = TabBar(tabs: [favorites, home, categories], defaultSelection: selectedIndex, distribution: .fillProportionally)
         tabbar.backgroundColor = .white
         tabbar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tabbar)
@@ -89,10 +84,6 @@ class ViewController: UIViewController {
         child.didMove(toParent: self)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-//        tabbar.dropShadow(color: .lightGray, opacity: 0.4, offSet: CGSize(width: -1, height: -5), radius: 3, scale: true)
-    }
     
 }
 

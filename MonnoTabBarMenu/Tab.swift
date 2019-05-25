@@ -68,7 +68,7 @@ public class TabItem: UIButton {
             }
             self.alpha = 0.75
         }) { (completion) in
-            UIView.animate(withDuration: 0.125) {
+            UIView.animate(withDuration: 0.225) {
                 if self.isSelected {
                     self.setTitle(self.title, for: .selected)
                 } else {
