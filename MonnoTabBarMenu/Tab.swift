@@ -30,6 +30,7 @@ public class TabItem: UIButton {
     convenience public init(image: UIImage, title: String) {
         self.init()
         self.image = image
+        self.title = title
     }
     
     convenience init() {
