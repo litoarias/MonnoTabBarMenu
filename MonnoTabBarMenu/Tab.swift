@@ -13,6 +13,8 @@ public class TabItem: UIButton {
     var action: (UIButton) -> Void = { _ in }
     private var image: UIImage!
     private var title: String!
+    private var fontSize: CGFloat = 8
+
     
     override public var isSelected: Bool {
         willSet(newValue) {
@@ -27,10 +29,11 @@ public class TabItem: UIButton {
         configure()
     }
     
-    convenience public init(image: UIImage, title: String) {
+    convenience public init(image: UIImage, title: String, fontSize: CGFloat) {
         self.init()
         self.image = image
         self.title = title
+        self.fontSize = fontSize
     }
     
     convenience init() {
@@ -61,7 +64,7 @@ public class TabItem: UIButton {
     func configure() {
         setTitle("", for: .normal)
         contentEdgeInsets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
-        titleLabel?.font = UIFont.systemFont(ofSize: 8 * (UIScreen.main.bounds.size.width / 320), weight: UIFont.Weight(rawValue: 20))
+        titleLabel?.font = UIFont.systemFont(ofSize: fontSize * (UIScreen.main.bounds.size.width / 320), weight: UIFont.Weight(rawValue: 20))
         addTarget(self, action: #selector(action(_:)), for: .touchUpInside)
     }
     

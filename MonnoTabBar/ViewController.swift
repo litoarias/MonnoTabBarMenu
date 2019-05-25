@@ -12,9 +12,9 @@ import MonnoTabBarMenu
 class ViewController: UIViewController {
     
     var tabbar: TabBar!
-    var favorites = TabItem(image: UIImage(named: "home")!, title: "Tete")
-    var home = TabItem(image: UIImage(named: "home")!, title: "Cohete")
-    var categories = TabItem(image: UIImage(named: "home")!, title: "Trucha")
+    var favorites = TabItem(image: UIImage(named: "home")!, title: "Tete", fontSize: 10)
+    var home = TabItem(image: UIImage(named: "home")!, title: "Cohete", fontSize: 10)
+    var categories = TabItem(image: UIImage(named: "home")!, title: "Trucha", fontSize: 10)
     
     var selectedIndex: Int = 1
     lazy var previousIndex = self.selectedIndex
