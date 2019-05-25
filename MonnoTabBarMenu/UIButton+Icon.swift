@@ -11,7 +11,7 @@ extension UIButton {
         self.setImage(image.withRenderingMode(renderMode), for: .selected)
         self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: image.size.width / 2)
         self.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
-        self.contentHorizontalAlignment = .left
+        self.contentHorizontalAlignment = .center
         self.imageView?.contentMode = .scaleAspectFit
     }
     
