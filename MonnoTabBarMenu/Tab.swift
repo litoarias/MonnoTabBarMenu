@@ -68,13 +68,15 @@ public class TabItem: UIButton {
             }
             self.alpha = 0.75
         }) { (completion) in
-            UIView.animate(withDuration: 0.225) {
-                if self.isSelected {
-                    self.setTitle(self.title, for: .selected)
-                } else {
-                    self.setTitle("", for: .selected)
+            if completion {
+                UIView.animate(withDuration: 0.225) {
+                    if self.isSelected {
+                        self.setTitle(self.title, for: .selected)
+                    } else {
+                        self.setTitle("", for: .selected)
+                    }
+                    self.alpha = 1.0
                 }
-                self.alpha = 1.0
             }
         }
     }
