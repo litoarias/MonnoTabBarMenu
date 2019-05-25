@@ -69,14 +69,14 @@ public class TabItem: UIButton {
             self.alpha = 0.75
         }) { (completion) in
             if completion {
-                UIView.animate(withDuration: 0.225) {
+                UIView.animate(withDuration: 0.225, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
                     if self.isSelected {
                         self.setTitle(self.title, for: .selected)
                     } else {
                         self.setTitle("", for: .selected)
                     }
                     self.alpha = 1.0
-                }
+                }, completion: nil)
             }
         }
     }

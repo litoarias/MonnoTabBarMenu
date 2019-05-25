@@ -16,6 +16,7 @@ public class TabBar: UIView {
     public var selectedItem: (Int) -> Void = { _ in }
     var drawShadow = false
     private var distributeStackView: UIStackView.Distribution!
+    private var lastSelection: Int?
     
     convenience public init(tabs: [TabItem], defaultSelection: Int, distribution: UIStackView.Distribution) {
         self.init()
@@ -76,6 +77,8 @@ public class TabBar: UIView {
     }
     
     public func newSelection(tagSelected: Int) {
+        guard lastSelection != tagSelected else { return }
+        lastSelection = tagSelected
         _ = self.tabs.map { item in
             if item.tag == tagSelected {
                 item.isSelected = true
