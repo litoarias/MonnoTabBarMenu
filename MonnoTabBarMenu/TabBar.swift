@@ -15,13 +15,26 @@ public class TabBar: UIView {
     private var defaultSelection: Int = 1
     public var selectedItem: (Int) -> Void = { _ in }
     var drawShadow = false
+    private var distributeStackView: UIStackView.Distribution!
     
     convenience public init(tabs: [TabItem], defaultSelection: Int) {
         self.init()
         self.tabs = tabs
         self.defaultSelection = defaultSelection
         self.configure()
+        self.distributeStackView = .fillEqually
+
     }
+    
+    
+    convenience public init(tabs: [TabItem], defaultSelection: Int, distribution: UIStackView.Distribution) {
+        self.init()
+        self.tabs = tabs
+        self.defaultSelection = defaultSelection
+        self.configure()
+        self.distributeStackView = distribution
+    }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +60,7 @@ public class TabBar: UIView {
     func configure() {
         stackView = UIStackView(arrangedSubviews: self.tabs)
         stackView.alignment = .fill
-        stackView.distribution = .fillEqually
+        stackView.distribution = distributeStackView
         stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackView)

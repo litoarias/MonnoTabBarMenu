@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         
         self.viewControllers = [homeViewController, searchViewController, accountViewController]
         
-        tabbar = TabBar(tabs: [favorites, home, categories], defaultSelection: selectedIndex)
+        tabbar = TabBar(tabs: [favorites, home, categories], defaultSelection: selectedIndex, distribution: .fillEqually)
         tabbar.backgroundColor = .white
         tabbar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tabbar)
