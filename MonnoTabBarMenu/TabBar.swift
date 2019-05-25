@@ -75,7 +75,7 @@ public class TabBar: UIView {
         
     }
     
-    func newSelection(tagSelected: Int) {
+    public func newSelection(tagSelected: Int) {
         _ = self.tabs.map { item in
             if item.tag == tagSelected {
                 item.isSelected = true
