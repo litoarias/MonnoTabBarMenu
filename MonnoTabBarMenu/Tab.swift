@@ -34,27 +34,13 @@ public class TabItem: UIButton {
         self.image = image
         self.title = title
         self.fontSize = fontSize
-    }
-    
-    convenience init() {
-        self.init(frame:.zero)
         configure()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        configure()
+        fatalError("init(coder:) has not been implemented")
     }
     
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-        configure()
-    }
-    
-    override public func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        configure()
-    }
     
     override public func layoutSubviews() {
         super.layoutSubviews()
