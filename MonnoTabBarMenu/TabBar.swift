@@ -17,22 +17,12 @@ public class TabBar: UIView {
     var drawShadow = false
     private var distributeStackView: UIStackView.Distribution!
     
-    convenience public init(tabs: [TabItem], defaultSelection: Int) {
-        self.init()
-        self.tabs = tabs
-        self.defaultSelection = defaultSelection
-        self.configure()
-        self.distributeStackView = .fillEqually
-
-    }
-    
-    
     convenience public init(tabs: [TabItem], defaultSelection: Int, distribution: UIStackView.Distribution) {
         self.init()
         self.tabs = tabs
         self.defaultSelection = defaultSelection
-        self.configure()
         self.distributeStackView = distribution
+        self.configure()
     }
     
     
