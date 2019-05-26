@@ -26,7 +26,7 @@ public class TabItem: UIButton {
     //MARK: Initializers
     override init(frame : CGRect) {
         super.init(frame : frame)
-        configure()
+//        configure()
     }
     
     convenience public init(image: UIImage, title: String, fontSize: CGFloat) {
@@ -44,7 +44,7 @@ public class TabItem: UIButton {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 20
+        transition()
     }
     
     func configure() {
@@ -52,6 +52,7 @@ public class TabItem: UIButton {
         contentEdgeInsets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
         titleLabel?.font = UIFont.systemFont(ofSize: fontSize * (UIScreen.main.bounds.size.width / 320), weight: UIFont.Weight(rawValue: 20))
         addTarget(self, action: #selector(action(_:)), for: .touchUpInside)
+        layer.cornerRadius = 20
     }
     
     @objc func action(_ sender: UIButton) {
@@ -60,7 +61,7 @@ public class TabItem: UIButton {
     
     private func transition() {
         self.alpha = 0.5
-        UIView.animate(withDuration: 0.275, animations: {
+        UIView.transition(with: self, duration: 0.25, options: .curveEaseInOut, animations: {
             if self.isSelected {
                 self.selectedStyle(image: self.image!)
             } else {
@@ -69,7 +70,7 @@ public class TabItem: UIButton {
             self.alpha = 0.75
         }) { (completion) in
             if completion {
-                UIView.animate(withDuration: 0.225, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+                UIView.transition(with: self, duration: 0.25, options: .curveEaseInOut, animations: {
                     if self.isSelected {
                         self.setTitle(self.title, for: .selected)
                     } else {
