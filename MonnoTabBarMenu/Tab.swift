@@ -49,7 +49,7 @@ public class TabItem: UIButton {
     
     func configure() {
         setTitle("", for: .normal)
-        contentEdgeInsets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
         titleLabel?.font = UIFont.systemFont(ofSize: fontSize * (UIScreen.main.bounds.size.width / 320), weight: UIFont.Weight(rawValue: 20))
         addTarget(self, action: #selector(action(_:)), for: .touchUpInside)
         layer.cornerRadius = 20
@@ -60,7 +60,7 @@ public class TabItem: UIButton {
     }
     
     private func transition() {
-        self.alpha = 0.5
+        self.alpha = 0.25
         UIView.transition(with: self, duration: 0.25, options: .curveEaseInOut, animations: {
             if self.isSelected {
                 self.selectedStyle(image: self.image!)

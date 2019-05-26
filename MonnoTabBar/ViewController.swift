@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     var favorites = TabItem(image: UIImage(named: "home")!, title: "Tete", fontSize: 10)
     var home = TabItem(image: UIImage(named: "home")!, title: "Cohete", fontSize: 10)
     var categories = TabItem(image: UIImage(named: "home")!, title: "Trucha", fontSize: 10)
-    
+    var newCategory = TabItem(image: UIImage(named: "home")!, title: "Trucha", fontSize: 10)
     var selectedIndex: Int = 1
     lazy var previousIndex = self.selectedIndex
     
@@ -29,9 +29,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.viewControllers = [homeViewController, searchViewController, accountViewController]
+        self.viewControllers = [homeViewController, searchViewController, accountViewController, accountViewController]
         
-        tabbar = TabBar(tabs: [favorites, home, categories], defaultSelection: selectedIndex, distribution: .fillProportionally)
+        tabbar = TabBar(tabs: [favorites, home, categories, newCategory], defaultSelection: selectedIndex, distribution: .fillProportionally)
         tabbar.backgroundColor = .white
         tabbar.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tabbar)
